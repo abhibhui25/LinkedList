@@ -43,6 +43,25 @@ public class LinkedList {
         return head;
     }
 
+    public static int returnNode(Node head, int data) {
+        if (head == null)
+            return 0;
+
+        if (head.data == data) {
+            return 1;
+        }
+        int count = 1;
+        Node second_last = head;
+        while (second_last.next != null) {
+            count = count + 1;
+            if (second_last.next.data == data)
+                return count;
+            second_last = second_last.next;
+        }
+
+        return 0;
+    }
+
     static boolean searchNode(Node head,int data)
     {
         if (head == null)
@@ -92,7 +111,7 @@ public class LinkedList {
         return head;
     }
 
-    static Node InsertPos(Node headNode, int position, int data) {
+    public static Node InsertPos(Node headNode, int position, int data) {
         Node head = headNode;
         if (position < 1)
             System.out.print("Invalid position");
