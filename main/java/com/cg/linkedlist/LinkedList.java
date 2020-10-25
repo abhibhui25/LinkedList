@@ -26,7 +26,21 @@ public class LinkedList {
             temp = newNode;
         }
     }
+    public void addingAtStart(int data) {
 
+        Node newNode = new Node(data);
+        if (head == null) {
+
+            head = newNode;
+            temp =newNode;
+        }
+        else
+        {
+            Node temp = head;
+            head = newNode;
+            head.next = temp;
+        }
+    }
     public void display() {
         Node current = head;
         if (head == null) {
@@ -45,9 +59,9 @@ public class LinkedList {
     public static void main(String[] args) {
 
         LinkedList List = new LinkedList();
-        List.addNode(70);
-        List.addNode(30);
-        List.addNode(56);
+        List.addingAtStart(70);
+        List.addingAtStart(30);
+        List.addingAtStart(56);
         List.display();
     }
 }
