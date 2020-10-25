@@ -28,6 +28,42 @@ public class LinkedList {
         }
     }
 
+    static Node removeNodeValue(Node head,int value)
+    {
+        Node prev=head;
+        Node curr=head;
+        if (head == null)
+            return null;
+
+        if (head.data == value) {
+            head=curr.next;
+            return head;
+        }
+        while (prev.next != null)
+        {
+            if (prev.next.data == value)
+            {
+                curr = prev.next.next;
+                prev.next = curr;
+                return head;
+            }
+            prev=prev.next;
+        }
+        return head;
+    }
+
+    public int lengthOfLinkedList()
+    {
+        Node temp=head;
+        int count = 0;
+        while(temp!=null)
+        {
+            temp=temp.next;
+            count++;
+        }
+        return count;
+    }
+
     static Node removeLastNode(Node head)
     {
         if (head == null)
@@ -43,7 +79,7 @@ public class LinkedList {
         return head;
     }
 
-    public static int returnNode(Node head, int data) {
+    static int returnNode(Node head,int data) {
         if (head == null)
             return 0;
 
@@ -111,10 +147,10 @@ public class LinkedList {
         return head;
     }
 
-    public static Node InsertPos(Node headNode, int position, int data) {
+    static Node InsertPos(Node headNode, int position, int data) {
         Node head = headNode;
         if (position < 1)
-            System.out.print("Invalid position");
+            System.out.print("You entered an invalid position");
 
         if (position == 1) {
             Node newNode = new Node(data);
